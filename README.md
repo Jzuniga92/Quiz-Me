@@ -12,3 +12,6 @@ Once the quiz begins you will have 30 secs to answer each questions. If question
 Each question will be multiple choice. Once you have chosen your answer. You will be indicated if the answer was correct or incorrect by the highlighted color. Green being "correct" red being "incorrect".
 
 At the end of the quiz your score and initials will be recored. 
+
+## Take the Quiz
+https://jzuniga92.github.io/Quiz-Me/

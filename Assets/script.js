@@ -12,7 +12,7 @@ let scoreCount = 0;
 let count = 0;
 let countdown;
 
-const quizArray = [
+var questions = [
     {
         id: "0",
         question: "What is JavaScript?",
@@ -74,13 +74,13 @@ const quizArray = [
  nxtButton.addEventListener("click", (displayNext = () =>{
     questionCount += 1;
 
-    if(questionCount === quizArray.length){
+    if(questionCount === questions.length){
 
         userScore.innerHTML = "Your Score" +
         scoreCount + " Out of" + questionCount;
     }
     else{
-        numberofQuestions.innerHTML = questionCount + 1 + " of " + quizArray.length + " Question";
+        numberofQuestions.innerHTML = questionCount + 1 + " of " + questions.length + " Question";
 
        quizDisplay(questionCount);
         count = 30;
@@ -109,15 +109,15 @@ const quizArray = [
  };
 
  function quizCreater(){
-    quizArray.sort(() => Math.random() - 0.5);
+    questions.sort(() => Math.random() - 0.5);
 
-    for(let i of quizArray){
+    for(let i of questions){
         i.options.sort(()=> Math.random() - 0.5);
         let div = document.createElement("div");
         div.classList.add("question-container");
 
         numberofQuestions.innerHTML = 1 + " of " +
-        quizArray.length + "Question";
+        questions.length + "Question";
 
         let question_DIV = document.createElement("p");
         question_DIV.classList.add("question");
@@ -148,7 +148,7 @@ const quizArray = [
     ("question-container")[questionCount];
     let options = question.querySelectorAll(".option-div");
 
-    if(userSolution === quizArray[questionCount].correct){
+    if(userSolution === questions[questionCount].correct){
         userOption.classList.add("correct");
         scoreCount++;
     }
@@ -156,7 +156,7 @@ const quizArray = [
         userOption.classList.add("incorrect");
 
         options.forEach((element) =>{
-            if(element.innerText = quizArray[questionCount].correct){  
+            if(element.innerText = questions[questionCount].correct){  
                 element.classList.add("correct");
             }
         });
